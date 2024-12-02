@@ -1,2 +1,2 @@
 let frase = "Aprender JavaScript é divertido!"
-console.log(frase.lenght)
+console.log(frase.length)

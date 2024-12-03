@@ -5,15 +5,39 @@ console.log(frutas[1])
 console.log(frutas[2])
 
 frutas[1] = 'Manga'
-console.log('\n ---- \n' + frutas[1])
+console.log(frutas); // ["Maçã", "Manga", "Laranja"]
 
+console.log(frutas.length); // 3
 
-console.log(frutas)
+frutas.push("Uva");
+console.log(frutas); // ["Maçã", "Banana", "Laranja", "Uva"]
 
-console.log('\n ---- \n' + frutas[1])
-console.log('\n ---- \n' + frutas[1])
+frutas.pop();
+console.log(frutas); // ["Maçã", "Banana", "Laranja"]
 
+frutas.shift();
+console.log(frutas); // ["Banana", "Laranja"]
 
+frutas.unshift("Abacaxi");
+console.log(frutas); // ["Abacaxi", "Banana", "Laranja"]
+
+let indice = frutas.indexOf("Laranja");
+console.log(indice); // 1
+
+let algumasFrutas = frutas.slice(1, 3);
+console.log(algumasFrutas); // ["Banana", "Laranja"]
+
+let frutasMaiusculas = frutas.map(function(fruta) {
+    return fruta.toUpperCase();
+  });
+  
+  console.log(frutasMaiusculas); // ["ABACAXI", "BANANA", "LARANJA"]
+
+  let frutasComA = frutas.filter(function(fruta) {
+    return fruta.includes("a");
+  });
+  
+  console.log(frutasComA); // ["Maçã, "Banana", "Laranja"]
 
 
 

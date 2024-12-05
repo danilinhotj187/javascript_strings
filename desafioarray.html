@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alimentos</title>
+    <style>
+        body {
+            background-color: bisque;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: monospace;
+            font-size: 40px;
+            margin-top: 280px;
+        }
+
+        .alimentos{
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            height: 60px;
+            width: 400px;
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: bold;
+            white-space: nowrap;
+            background-color: brown;
+            color: bisque;
+            border-radius: 30px;
+        }
+
+        #ingredientes-selecionados{
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Alimentos Disponíveis</h1>
+    <div class="alimentos" id="lista-alimentos">
+        <input type="checkbox" value="Salada">Salada<br>
+        <input type="checkbox" value="Feijão">Feijão<br>
+        <input type="checkbox" value="Arroz">Arroz<br>
+        <input type="checkbox" value="Carne">Carne<br>
+        <input type="checkbox" value="Suco">Suco<br>
+    </div>
+
+    <button id="btn-exibir">Exibir Ingredientes Selecionados</button>
+    <p id="ingredientes-selecionados"></p>
+
+    <script>
+        // Captura o botão e a área onde os ingredientes serão exibidos
+        const botaoExibir = document.getElementById('btn-exibir');
+        const exibirIngredientes = document.getElementById('ingredientes-selecionados');
+
+        // Adiciona o evento de clique no botão
+        botaoExibir.addEventListener('click', () => {
+            // Captura os checkboxes marcados
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const ingredientesSelecionados = [];
+
+            // Verifica quais checkboxes estão marcados
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    ingredientesSelecionados.push(checkbox.value);
+                }
+            });
+
+            // Atualiza o conteúdo da <p> com os ingredientes selecionados
+            exibirIngredientes.textContent = ingredientesSelecionados.length > 0 
+                ? `Ingredientes selecionados: ${ingredientesSelecionados.join(', ')}.`
+                : 'Nenhum ingrediente selecionado.';
+        });
+    </script>
+
+</body>
+</html>
